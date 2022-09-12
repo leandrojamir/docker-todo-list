@@ -1,0 +1,1 @@
+docker image pull --disable-content-trust nginx:1.21.3-alpine
