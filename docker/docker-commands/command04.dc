@@ -1,0 +1,2 @@
+
+docker exec --interactive 01container cat "/etc/os-release"
