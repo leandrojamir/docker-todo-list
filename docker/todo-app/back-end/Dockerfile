@@ -8,6 +8,8 @@ ADD node_modules.tar.gz ./docker/todo-app/back-end
 # copie todos os arquivos da pasta back-end para a imagem. (você pode usar o caminho relativo, lembrando que a Dockerfile está em ./docker/todo-app/back-end/Dockerfile);
 # COPY ./docker/todo-app/back-end ./docker/todo-app/back-end/Dockerfile
 # COPY failed: file not found in build context or excluded by .dockerignore: stat docker/todo-app/back-end: file does not exist
+# -:11 DL3045 warning: `COPY` to a relative destination without `WORKDIR` set.
+WORKDIR /todo-app/back-end
 COPY . .
 # inicie a aplicação com o comando npm start.
 CMD ["npm", "test"]
