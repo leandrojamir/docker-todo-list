@@ -12,4 +12,4 @@ ADD node_modules.tar.gz ./docker/todo-app/back-end
 WORKDIR /todo-app/back-end
 COPY . .
 # inicie a aplicação com o comando npm start.
-CMD ["npm", "test"]
+CMD ["npm", "start"]
