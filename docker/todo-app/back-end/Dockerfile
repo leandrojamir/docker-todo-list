@@ -9,7 +9,7 @@ ADD node_modules.tar.gz ./docker/todo-app/back-end
 # COPY ./docker/todo-app/back-end ./docker/todo-app/back-end/Dockerfile
 # COPY failed: file not found in build context or excluded by .dockerignore: stat docker/todo-app/back-end: file does not exist
 # -:11 DL3045 warning: `COPY` to a relative destination without `WORKDIR` set.
-# WORKDIR /todo-app/back-end
-COPY . ./docker/todo-app/back-end
+WORKDIR /todo-app/back-end
+COPY . .
 # inicie a aplicação com o comando npm start.
 CMD ["npm", "start"]
