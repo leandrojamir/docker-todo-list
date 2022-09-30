@@ -14,15 +14,12 @@ services:
 # tests
 # O nome do service deverá ser todotests;
   todotests:
-    image: todotests
+    build: ./todo-app/tests/
     # Deve ter uma variável de ambiente FRONT_HOST que recebe como valor o nome do container do frontend
     environment:
       # - FRONT_HOST=frontend
     # Lembrando que, dentro de uma rede docker, o host de um container é indentificado pelo seu nome.
       - FRONT_HOST=todofront
-      # FRONT_PORT: padrão 3000.
-      # (Docker) Aqui você deve indicar a porta que você definiu internamente no container do front-end;
-      - FRONT_PORT=3000
     # O container de todotests deve ter como dependencia os containers frontend e backend;
     depends_on:
       - todofront
@@ -30,23 +27,20 @@ services:
 # front-end
 # O nome do service deverá ser todofront;
   todofront:
-    image: todofrontend
+    build: ./todo-app/front-end/
     # Deve ter como dependencia o container backend;
     depends_on:
       - todoback
     # Deve ter uma variável de ambiente REACT_APP_API_HOST que recebe como valor o nome do container do backend.
     environment:
       - REACT_APP_API_HOST=todoback
-      # REACT_APP_API_PORT: padrão 3001.
-      # (Docker) Aqui você deve indicar a porta que você definiu internamente no container do back-end;
-      - REACT_APP_API_PORT=3001
     # O container de todofrontend deve rodar na porta 3000;
     ports:
       - 3000:3000
 # back-end
 # O nome do service deverá ser todoback;
   todoback:
-    image: todobackend
+    build: ./todo-app/back-end/
     # O container de todobackend deve rodar na porta 3001;
     ports:
       - 3001:3001

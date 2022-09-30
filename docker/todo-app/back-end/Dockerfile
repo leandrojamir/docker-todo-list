@@ -1,5 +1,5 @@
 # rode a partir da imagem do node na versão 14;
-FROM node:14
+FROM node:14-alpine
 # exponha a porta 3001;
 EXPOSE 3001
 # adicione o arquivo node_modules.tar.gz à imagem;
@@ -12,4 +12,4 @@ ADD node_modules.tar.gz ./docker/todo-app/back-end
 WORKDIR /todo-app/back-end
 COPY . .
 # inicie a aplicação com o comando npm start.
-CMD ["npm", "start"]
+ENTRYPOINT ["npm", "start"]
