@@ -9,11 +9,10 @@ FROM node:14-alpine
 # exponha a porta 3000;
 EXPOSE 3000
 # adicione o arquivo node_modules.tar.gz à imagem;
-WORKDIR /usr/todo-app
-ADD ./node_modules.tar.gz ./
+WORKDIR /todo-app/front-end/
+ADD node_modules.tar.gz ./
 # copie todos os arquivos da pasta front-end para a imagem. (você pode usar o caminho relativo, lembrando que a Dockerfile está em ./docker/todo-app/front-end/Dockerfile);
-WORKDIR /todo-app/front-end
 COPY . .
 # inicie a aplicação com o comando npm start.
-CMD ["npm", "start"]
+ENTRYPOINT ["npm", "start"]
 # ✕ O avaliador deve executar o comando no arquivo 'command10.dc' (300008 ms)
